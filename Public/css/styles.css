@@ -1,0 +1,240 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f3f1;
+    color: #1c2645;
+  }
+  
+  .side-layout {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 95px;
+    background-color: #17244b;
+  }
+  
+  .indhold {
+    flex: 1;
+    padding: 40px;
+  }
+  
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+  
+  .kort-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  
+  .kort {
+    background: white;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  
+  .profil-boks {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  
+  .avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .chip {
+    background: #cfe0ff;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .opgave-række {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .opgave-titel {
+    flex: 1;
+  }
+  
+  .timer-pill,
+  .status-pill,
+  .badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  
+  .timer-pill {
+    background: #cfe0ff;
+  }
+  
+  .status-igang {
+    background: #b9efc7;
+  }
+  
+  .status-planlagt {
+    background: #f4e79a;
+  }
+  
+  .status-ikke-begyndt {
+    background: #f7c0c0;
+  }
+  
+  .badge.succes {
+    background: #b9efc7;
+  }
+  
+  .badge.fare {
+    background: #f4bcbc;
+  }
+  
+  .begrundelses-boks {
+    margin-top: 18px;
+    background: #d8e6ff;
+    border-radius: 20px;
+    padding: 16px;
+  }
+  
+  .kapacitet-linje {
+    display: grid;
+    grid-template-columns: 120px 1fr 60px;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  
+  .progress-bar {
+    height: 18px;
+    background: #ffffff;
+    border: 1px solid #999;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  
+  .progress-grøn {
+    height: 100%;
+    background: #a7e4b6;
+    border-radius: 999px;
+  }
+  
+  .progress-rød {
+    height: 100%;
+    background: #f1b7b7;
+    border-radius: 999px;
+  }
+  
+  .progress-gul {
+    height: 100%;
+    background: #efe5a2;
+    border-radius: 999px;
+  }
+  
+  .knap-række {
+    display: flex;
+    gap: 16px;
+    margin-top: 22px;
+  }
+  
+  .knap {
+    border: none;
+    border-radius: 999px;
+    padding: 14px 22px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .knap.primær {
+    background: #2dcc5a;
+    color: #10223f;
+  }
+  
+  .knap.sekundær {
+    background: #cfe0ff;
+    color: #10223f;
+  }
+  
+  .knap.advarsel {
+    background: #f2e28d;
+    color: #10223f;
+  }
+  
+  .feedback {
+    margin-top: 16px;
+    font-weight: 700;
+    color: #2b7a3d;
+  }
+  
+  .uge-række {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .dag-label {
+    width: 40px;
+    font-weight: 600;
+  }
+  
+  .uge-bar {
+    flex: 1;
+    height: 16px;
+    background: #d0d0d0;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  
+  .uge-bar-udfyldning {
+    height: 100%;
+    background: #a8a8a8;
+    border-radius: 999px;
+  }
+  
+  .team-kort {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .medarbejder-kort {
+    background: #f8f8f8;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 220px;
+  }
+  
+  .tilbage-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #1c2645;
+    text-decoration: none;
+    font-weight: 700;
+  }

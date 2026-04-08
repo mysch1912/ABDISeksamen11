@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medarbejderdetalje</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <main class="side-layout">
+    <aside class="sidebar"></aside>
+
+    <section class="indhold">
+      <a href="/" class="tilbage-link">← Tilbage til dashboard</a>
+      <h1 id="side-overskrift">Medarbejderprofil og kapacitetsoversigt</h1>
+
+      <div class="kort-grid">
+        <div class="kort">
+          <h2>Profilkort</h2>
+          <div id="profil-indhold"></div>
+        </div>
+
+        <div class="kort">
+          <h2>Kapacitet</h2>
+          <div id="kapacitet-indhold"></div>
+        </div>
+
+        <div class="kort">
+          <h2>Kompetencer</h2>
+          <div id="kompetencer-indhold" class="chips"></div>
+        </div>
+
+        <div class="kort">
+          <h2>Nuværende opgaver</h2>
+          <div id="opgaver-indhold"></div>
+        </div>
+
+        <div class="kort">
+          <h2>Systemforslag</h2>
+          <div id="forslag-indhold"></div>
+
+          <div class="knap-række">
+            <button id="tildel-knap" class="knap primær">Tildel opgave</button>
+            <button class="knap advarsel">Se andre forslag</button>
+          </div>
+
+          <p id="feedback-besked" class="feedback"></p>
+        </div>
+
+        <div class="kort">
+          <h2>Ugebelastning</h2>
+          <div id="ugebelastning-indhold"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/medarbejder.js"></script>
+</body>
+</html>

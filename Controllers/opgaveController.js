@@ -1,6 +1,6 @@
-const medarbejdere = require("../Models/medarbejdere.js");
-const opgaver = require("../Models/opgaver.js");
-const systemforslag = require("../Models/systemforslag.js");
+const medarbejdere = require("../Models/medarbejdere");
+const opgaver = require("../Models/opgaver");
+const systemforslag = require("../Models/systemforslag");
 
 exports.tildelForeslåetOpgave = (req, res) => {
   const medarbejderId = Number(req.body.medarbejderId);
@@ -12,6 +12,19 @@ exports.tildelForeslåetOpgave = (req, res) => {
     return res.status(404).json({
       succes: false,
       besked: "Kunne ikke finde medarbejder eller systemforslag"
+    });
+  }
+
+  const opgaveFindesAllerede = opgaver.some(
+    (o) =>
+      o.medarbejderId === medarbejderId &&
+      o.titel === forslag.foreslåetOpgave
+  );
+
+  if (opgaveFindesAllerede) {
+    return res.json({
+      succes: false,
+      besked: `${forslag.foreslåetOpgave} er allerede tildelt til ${medarbejder.navn}`
     });
   }
 

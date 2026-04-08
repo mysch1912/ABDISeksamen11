@@ -1,240 +1,598 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f3f1;
-    color: #1c2645;
-  }
-  
-  .side-layout {
-    display: flex;
-    min-height: 100vh;
-  }
-  
-  .sidebar {
-    width: 95px;
-    background-color: #17244b;
-  }
-  
-  .indhold {
-    flex: 1;
-    padding: 40px;
-  }
-  
-  h1,
-  h2,
-  h3,
-  p {
-    margin-top: 0;
-  }
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f3f1;
+  color: #1c2645;
+}
+
+.side-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 88px;
+  background-color: #162349;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0 20px;
+}
+
+.sidebar-menu,
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.ikon {
+  color: #ffffff;
+  font-size: 22px;
+  opacity: 0.95;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.ikon:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.ikon.aktiv {
+  color: #f4a261;
+}
+
+.indhold {
+  flex: 1;
+  padding: 34px 44px 38px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.kort-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.kort {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 26px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.kort:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.kort-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profil-boks {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chip {
+  background: #cfe0ff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.opgave-række {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.opgave-titel {
+  min-width: 0;
+}
+
+.timer-pill,
+.status-pill,
+.badge,
+.prioritet-pill {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.timer-pill {
+  background: #cfe0ff;
+}
+
+.status-igang {
+  background: #bcebc8;
+  color: #183027;
+}
+
+.status-planlagt {
+  background: #f3e39b;
+  color: #453b15;
+}
+
+.status-ikke-begyndt {
+  background: #f3c2c2;
+  color: #4a2222;
+}
+
+.badge.succes {
+  background: #bcebc8;
+  color: #183027;
+}
+
+.badge.fare {
+  background: #f4bcbc;
+  color: #4a2222;
+}
+
+.begrundelses-boks {
+  margin-top: 18px;
+  background: #d8e6ff;
+  border-radius: 20px;
+  padding: 16px 18px;
+}
+
+.kapacitet-linje {
+  display: grid;
+  grid-template-columns: 120px 1fr 60px;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.progress-bar {
+  height: 18px;
+  background: #ffffff;
+  border: 1px solid #999;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-grøn {
+  height: 100%;
+  background: #a7e4b6;
+  border-radius: 999px;
+}
+
+.progress-rød {
+  height: 100%;
+  background: #f1b7b7;
+  border-radius: 999px;
+}
+
+.progress-gul {
+  height: 100%;
+  background: #efe5a2;
+  border-radius: 999px;
+}
+
+.knap-række {
+  display: flex;
+  gap: 16px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.knap {
+  border: none;
+  border-radius: 999px;
+  padding: 13px 22px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.12s ease, opacity 0.12s ease, box-shadow 0.12s ease;
+}
+
+.knap:hover {
+  opacity: 0.95;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.knap:active {
+  transform: scale(0.98);
+}
+
+.knap.primær {
+  background: #2dcc5a;
+  color: #10223f;
+}
+
+.knap.sekundær {
+  background: #cfe0ff;
+  color: #10223f;
+}
+
+.knap.advarsel {
+  background: #f2e28d;
+  color: #10223f;
+}
+
+.feedback {
+  margin-top: 16px;
+  font-weight: 800;
+  color: #2b7a3d;
+}
+
+.uge-række {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.dag-label {
+  width: 40px;
+  font-weight: 700;
+}
+
+.uge-bar {
+  flex: 1;
+  height: 16px;
+  background: #d0d0d0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.uge-bar-udfyldning {
+  height: 100%;
+  background: #a8a8a8;
+  border-radius: 999px;
+}
+
+.tilbage-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #1c2645;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.tilbage-link:hover {
+  text-decoration: underline;
+}
+
+/* DASHBOARD TOP */
+
+.dashboard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.mette-avatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dashboard-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.75fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.see-more {
+  text-decoration: none;
+  color: #1c2645;
+  font-weight: 800;
+  font-size: 0.98rem;
+}
+
+.see-more:hover {
+  text-decoration: underline;
+}
+
+/* KALENDER */
+
+.kalender-kort {
+  min-height: 274px;
+}
+
+.kalender-kort h2 {
+  margin-bottom: 10px;
+}
+
+.kalender-pile {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.kalender-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.kalender-uger {
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+.kalender-dage span {
+  padding: 8px 0;
+  font-size: 0.96rem;
+}
+
+.svag {
+  color: #b5b5b5;
+}
+
+.dag-markering {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.dag-markering.orange {
+  background: #f6a261;
+  color: white;
+}
+
+/* PROJEKTPROCES */
+
+.proces-kort {
+  min-height: 274px;
+}
+
+.proces-kort h2 {
+  margin-bottom: 18px;
+}
+
+.proces-tabel {
+  margin-top: 10px;
+}
+
+.proces-header,
+.proces-række {
+  display: grid;
+  grid-template-columns: 150px repeat(6, 1fr);
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.proces-header {
+  font-weight: 700;
+  color: #5d6785;
+  font-size: 0.96rem;
+}
+
+.proces-række span:first-child {
+  font-size: 0.96rem;
+}
+
+.proces-bar {
+  height: 14px;
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.proces-bar.orange {
+  background: #f4b183;
+}
+
+.proces-bar.blå {
+  background: #9edaf5;
+}
+
+.proces-bar.grøn {
+  background: #70d7b2;
+}
+
+.proces-bar.gul {
+  background: #eadf8d;
+}
+
+.proces-bar.lilla {
+  background: #d0b3f7;
+}
+
+/* DASHBOARD GRID */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.75fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.team-kort {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.medarbejder-kort {
+  background: #f8f8f8;
+  border-radius: 20px;
+  padding: 22px 18px;
+  text-align: center;
+  width: 170px;
+  min-height: 174px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.medarbejder-kort:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.medarbejder-kort .avatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.medarbejder-kort h3 {
+  margin-bottom: 6px;
+  font-size: 0.98rem;
+}
+
+.medarbejder-kort p {
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+}
+
+.opgave-sektion {
+  margin-bottom: 28px;
+}
+
+.opgave-sektion h3 {
+  margin-bottom: 16px;
+}
+
+.opgave-dashboard-række {
+  display: grid;
+  grid-template-columns: 1.8fr 0.7fr 0.9fr 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.opgave-navn {
+  font-size: 0.98rem;
+}
+
+.deadline {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.deadline-rød {
+  color: #ff4f87;
+}
+
+.deadline-pink {
+  color: #ff4f87;
+}
+
+.deadline-grøn {
+  color: #17b26a;
+}
+
+.deadline-gul {
+  color: #d9a400;
+}
+
+.prioritet-høj {
+  background: #f8dce7;
+  color: #ff3d7f;
+}
+
+.prioritet-medium {
+  background: #f9ead8;
+  color: #ff8a00;
+}
+
+.prioritet-lav {
+  background: #d8f3dc;
+  color: #14a44d;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .dashboard-grid,
+  .dashboard-top-grid,
   .kort-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(320px, 1fr));
-    gap: 24px;
+    grid-template-columns: 1fr;
   }
-  
-  .kort {
-    background: white;
-    border-radius: 24px;
-    padding: 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  }
-  
-  .profil-boks {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-  }
-  
-  .avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  
-  .chip {
-    background: #cfe0ff;
-    padding: 10px 16px;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 14px;
-  }
-  
-  .opgave-række {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  
-  .opgave-titel {
-    flex: 1;
-  }
-  
-  .timer-pill,
-  .status-pill,
-  .badge {
-    display: inline-block;
-    padding: 8px 14px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 700;
-  }
-  
-  .timer-pill {
-    background: #cfe0ff;
-  }
-  
-  .status-igang {
-    background: #b9efc7;
-  }
-  
-  .status-planlagt {
-    background: #f4e79a;
-  }
-  
-  .status-ikke-begyndt {
-    background: #f7c0c0;
-  }
-  
-  .badge.succes {
-    background: #b9efc7;
-  }
-  
-  .badge.fare {
-    background: #f4bcbc;
-  }
-  
-  .begrundelses-boks {
-    margin-top: 18px;
-    background: #d8e6ff;
-    border-radius: 20px;
-    padding: 16px;
-  }
-  
-  .kapacitet-linje {
-    display: grid;
-    grid-template-columns: 120px 1fr 60px;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 14px;
-  }
-  
-  .progress-bar {
-    height: 18px;
-    background: #ffffff;
-    border: 1px solid #999;
-    border-radius: 999px;
-    overflow: hidden;
-  }
-  
-  .progress-grøn {
-    height: 100%;
-    background: #a7e4b6;
-    border-radius: 999px;
-  }
-  
-  .progress-rød {
-    height: 100%;
-    background: #f1b7b7;
-    border-radius: 999px;
-  }
-  
-  .progress-gul {
-    height: 100%;
-    background: #efe5a2;
-    border-radius: 999px;
-  }
-  
-  .knap-række {
-    display: flex;
-    gap: 16px;
-    margin-top: 22px;
-  }
-  
-  .knap {
-    border: none;
-    border-radius: 999px;
-    padding: 14px 22px;
-    font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  .knap.primær {
-    background: #2dcc5a;
-    color: #10223f;
-  }
-  
-  .knap.sekundær {
-    background: #cfe0ff;
-    color: #10223f;
-  }
-  
-  .knap.advarsel {
-    background: #f2e28d;
-    color: #10223f;
-  }
-  
-  .feedback {
-    margin-top: 16px;
-    font-weight: 700;
-    color: #2b7a3d;
-  }
-  
-  .uge-række {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-  
-  .dag-label {
-    width: 40px;
-    font-weight: 600;
-  }
-  
-  .uge-bar {
-    flex: 1;
-    height: 16px;
-    background: #d0d0d0;
-    border-radius: 999px;
-    overflow: hidden;
-  }
-  
-  .uge-bar-udfyldning {
-    height: 100%;
-    background: #a8a8a8;
-    border-radius: 999px;
-  }
-  
-  .team-kort {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  
+
   .medarbejder-kort {
-    background: #f8f8f8;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    width: 220px;
+    width: 100%;
+    max-width: 280px;
   }
-  
-  .tilbage-link {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: #1c2645;
-    text-decoration: none;
-    font-weight: 700;
+
+  .opgave-dashboard-række {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
+
+  .proces-header,
+  .proces-række {
+    grid-template-columns: 1fr;
+  }
+}
+.medarbejder-top {
+  margin-bottom: 26px;
+}
+
+.medarbejder-top .tilbage-link {
+  margin-bottom: 14px;
+}
+
+.medarbejder-top h1 {
+  margin-bottom: 0;
+}

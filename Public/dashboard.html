@@ -8,34 +8,147 @@
 </head>
 <body>
   <main class="side-layout">
-    <aside class="sidebar"></aside>
+    <aside class="sidebar">
+      <div class="sidebar-top"></div>
+
+      <div class="sidebar-menu">
+        <div class="ikon">⌂</div>
+        <div class="ikon">▦</div>
+        <div class="ikon aktiv">▭</div>
+        <div class="ikon">◔</div>
+        <div class="ikon">✚</div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="ikon">⚙</div>
+        <div class="ikon">⇥</div>
+      </div>
+    </aside>
 
     <section class="indhold">
-      <h1>Mette dashboard</h1>
-      <p>Projekt overblik og teamstatus</p>
+      <div class="dashboard-top">
+        <div>
+          <h1>Projekt overblik</h1>
+        </div>
+        <img src="/images/mette.png" alt="Mette" class="mette-avatar" />
+      </div>
 
-      <div class="kort-grid">
-        <div class="kort">
-          <h2>Mettes team</h2>
+      <div class="dashboard-top-grid">
+        <div class="kort kalender-kort">
+          <div class="kort-header">
+            <h2>April 2026</h2>
+            <div class="kalender-pile">◀ ▶</div>
+          </div>
 
-          <div class="team-kort">
-            <div class="medarbejder-kort">
-              <img src="/images/jonas.png" alt="Jonas N." class="avatar" />
-              <h3>Jonas N.</h3>
-              <p>Medarbejder</p>
-              <a class="knap sekundær" href="/medarbejder/1">Se profil</a>
+          <div class="kalender-grid kalender-uger">
+            <span>SØN</span>
+            <span>MAN</span>
+            <span>TIR</span>
+            <span>ONS</span>
+            <span>TOR</span>
+            <span>FRE</span>
+            <span>LØR</span>
+          </div>
+
+          <div class="kalender-grid kalender-dage">
+            <span class="svag">27</span>
+            <span class="svag">28</span>
+            <span class="svag">29</span>
+            <span class="svag">30</span>
+            <span class="svag">31</span>
+            <span>1</span>
+            <span>2</span>
+
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span class="dag-markering orange">8</span>
+            <span>9</span>
+
+            <span>10</span>
+            <span>11</span>
+            <span>12</span>
+            <span>13</span>
+            <span>14</span>
+            <span>15</span>
+            <span>16</span>
+
+            <span>17</span>
+            <span>18</span>
+            <span>19</span>
+            <span>20</span>
+            <span>21</span>
+            <span>22</span>
+            <span>23</span>
+
+            <span>24</span>
+            <span>25</span>
+            <span>26</span>
+            <span>27</span>
+            <span>28</span>
+            <span>29</span>
+            <span>30</span>
+          </div>
+        </div>
+
+        <div class="kort proces-kort">
+          <h2>Projekt proces</h2>
+
+          <div class="proces-tabel">
+            <div class="proces-header">
+              <span></span>
+              <span>Januar</span>
+              <span>Februar</span>
+              <span>Marts</span>
+              <span>April</span>
+              <span>Maj</span>
+              <span>Juni</span>
             </div>
 
-            <div class="medarbejder-kort">
-              <img src="/images/sara.png" alt="Sara I." class="avatar" />
-              <h3>Sara I.</h3>
-              <p>Junior medarbejder</p>
-              <a class="knap sekundær" href="/medarbejder/2">Se profil</a>
+            <div class="proces-række">
+              <span>Ressource check</span>
+              <div class="proces-bar orange" style="grid-column: 2 / 4;"></div>
+            </div>
+
+            <div class="proces-række">
+              <span>Deltagere</span>
+              <div class="proces-bar blå" style="grid-column: 3 / 5;"></div>
+            </div>
+
+            <div class="proces-række">
+              <span>SWOT analyse</span>
+              <div class="proces-bar grøn" style="grid-column: 5 / 7;"></div>
+            </div>
+
+            <div class="proces-række">
+              <span>Design research</span>
+              <div class="proces-bar gul" style="grid-column: 4 / 5;"></div>
+              <div class="proces-bar lilla" style="grid-column: 6 / 8;"></div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="dashboard-grid">
+        <div class="kort">
+          <div class="kort-header">
+            <h2>Mettes team</h2>
+            <a href="#" class="see-more">Se mere →</a>
+          </div>
+
+          <div id="team-indhold" class="team-kort"></div>
+        </div>
+
+        <div class="kort">
+          <h2>Opgave oversigt</h2>
+          <div id="opgave-indhold"></div>
+        </div>
+      </div>
     </section>
   </main>
+
+  <script src="/dashboard.js"></script>
 </body>
 </html>

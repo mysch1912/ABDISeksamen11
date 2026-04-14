@@ -1,52 +1,50 @@
-const medarbejdere = require("../Models/medarbejdere");
-const opgaver = require("../Models/opgaver");
-const systemforslag = require("../Models/systemforslag");
+const { medarbejdere, opgaver, plan } = require("../Models/data");
 
-exports.tildelForeslåetOpgave = (req, res) => {
+exports.tildelOpgaveTilMedarbejder = (req, res) => {
   const medarbejderId = Number(req.body.medarbejderId);
+  const opgaveId = Number(req.body.opgaveId);
 
-  const medarbejder = medarbejdere.find((m) => m.id === medarbejderId);
-  const forslag = systemforslag.find((f) => f.medarbejderId === medarbejderId);
+  const medarbejder = medarbejdere.find(
+    (m) => m.medarbejderID === medarbejderId
+  );
 
-  if (!medarbejder || !forslag) {
+  const opgave = opgaver.find(
+    (o) => o.opgaveID === opgaveId
+  );
+
+  if (!medarbejder || !opgave) {
     return res.status(404).json({
       succes: false,
-      besked: "Kunne ikke finde medarbejder eller systemforslag"
+      besked: "Kunne ikke finde medarbejder eller opgave"
     });
   }
 
-  const opgaveFindesAllerede = opgaver.some(
-    (o) =>
-      o.medarbejderId === medarbejderId &&
-      o.titel === forslag.foreslåetOpgave
-  );
-
-  if (opgaveFindesAllerede) {
+  if (opgave.medarbejder) {
     return res.json({
       succes: false,
-      besked: `${forslag.foreslåetOpgave} er allerede tildelt til ${medarbejder.navn}`
+      besked: "Opgaven er allerede tildelt en medarbejder"
     });
   }
 
-  const nyOpgave = {
-    id: opgaver.length + 1,
-    medarbejderId,
-    titel: forslag.foreslåetOpgave,
-    timer: 5,
-    status: "Planlagt"
-  };
+  const resultat = plan.fordelOpgaver(opgave, medarbejder);
 
-  opgaver.push(nyOpgave);
+  if (!resultat.succes) {
+    return res.json({
+      succes: false,
+      besked: resultat.besked,
+      matchscore: resultat.vurdering.score
+    });
+  }
 
-  medarbejder.brugteTimer += nyOpgave.timer;
-  medarbejder.ledigeTimer = Math.max(
-    medarbejder.totaleTimer - medarbejder.brugteTimer,
-    0
-  );
-
-  res.json({
+  return res.json({
     succes: true,
-    besked: `Opgaven er tildelt til ${medarbejder.navn}`,
-    opgave: nyOpgave
+    besked: resultat.besked,
+    matchscore: resultat.vurdering.score,
+    opgave: {
+      id: opgave.opgaveID,
+      titel: opgave.opgaveType,
+      timer: opgave.estimeretTid,
+      status: opgave.opgaveStatus
+    }
   });
 };
